@@ -1,5 +1,10 @@
-import { useState } from 'react'
 import './App.css'
+import { TarotCard } from './components/TarotCard'
+import { ArchTarotFrame } from './components/TarotFrames/ArchTarotFrame'
+import { BeadCurtainTarotFrame } from './components/TarotFrames/BeadCurtainTarotFrame'
+import { CrescentTarotFrame } from './components/TarotFrames/CrescentTarotFrame'
+import { FancyFrameTarotFrame } from './components/TarotFrames/FancyFrameTarotFrame'
+import { SoundwaveTarotFrame } from './components/TarotFrames/SoundwaveTarotFrame'
 
 function App() {
     return (
@@ -8,22 +13,22 @@ function App() {
         <p className="text-2xl text-tarot-300 mb-12">
           Twitch.tv/lewn_atic
         </p>
-        <div className="w-11/12 h-4/6 flex flex-row items-center space-x-6 mt-5">
-          <div className="border-red-500 border-2 flex-grow h-3/4 self-start">
-            card1
-          </div>
-          <div className="border-red-500 border-2 flex-grow h-3/4 self-end">
-            card2
-          </div>
-          <div className="border-red-500 border-2 flex-grow h-3/4 self-start">
-            card3
-          </div>
-          <div className="border-red-500 border-2 flex-grow h-3/4 self-end">
+        <div className="w-11/12 h-4/6 flex flex-row items-center space-x-7 mt-5">
+          <TarotCard className="self-start flex-grow" frame={<CrescentTarotFrame className="fill-tarot-300 w-full hover:fill-tarot-100 transition-colors"/>}>
+            <p>card1</p>
+          </TarotCard>
+          <TarotCard className="self-end flex-grow" frame={<ArchTarotFrame className="fill-tarot-300 w-full"/>}>
+            <p>card2</p>
+          </TarotCard>
+          <TarotCard className="self-start flex-grow" frame={<SoundwaveTarotFrame className="fill-tarot-300 w-full"/>}>
+            <p>card3</p>
+          </TarotCard>
+          <TarotCard className="self-end flex-grow" frame={<FancyFrameTarotFrame className="fill-tarot-300 w-full"/>}>
             card4
-          </div>
-          <div className="border-red-500 border-2 flex-grow h-3/4 self-start">
+          </TarotCard>
+          <TarotCard className="self-start flex-grow" frame={<BeadCurtainTarotFrame className="fill-tarot-300 w-full"/>}>
             card5
-          </div>
+          </TarotCard>
         </div>
       </div>
     )
