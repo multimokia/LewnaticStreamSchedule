@@ -6,7 +6,7 @@
   height: 100vh;
   /* overflow: hidden; */
   background: url('bg/stars_angled.png');
-  background-size: contain;
+  background-size: cover;
 }
 
 .logo {
