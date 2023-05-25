@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,6 +10,7 @@ export default {
     extend: {
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'hover-slow': 'hover 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       colors: {
         tarot: {
@@ -24,7 +27,25 @@ export default {
           '950': '#361b14',
         }
       },
+      fontFamily: {
+        'BlackMango': ['BlackMango', 'sans-serif'],
+      },
     },
-    plugins: [],
+    plugins: [
+      plugin(({ matchUtilities, theme }) => {
+        matchUtilities(
+          {
+            'animation-delay': (value) => {
+              return {
+                'animation-delay': value,
+              };
+            },
+          },
+          {
+            values: theme('transitionDelay'),
+          }
+        );
+      }),
+    ],
   },
 };
