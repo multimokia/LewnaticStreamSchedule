@@ -2,10 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: BlackMango;
-    src: url('font/BlackMango-SemiBold.ttf');
+@layer base {
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Thin.ttf');
+    font-weight: 100;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-ExtraLight.ttf');
+    font-weight: 200;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Light.ttf');
+    font-weight: 300;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Regular.ttf');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Medium.ttf') format('truetype');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Black.ttf') format('truetype');
+    font-weight: 900;
+  }
 }
+
 
 :root {
   font-family: BlackMango; /*, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;*/
