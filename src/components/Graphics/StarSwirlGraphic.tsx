@@ -1,8 +1,8 @@
 export function StarSwirlGraphic({
   className,
-  primaryColor="#daadd4",
-  secondaryColor="#886aa1",
-  tertiaryColor="#754f85" //68448a
+  primaryColor='#daadd4',
+  secondaryColor='#886aa1',
+  tertiaryColor='#754f85' //68448a
 }: {
   className?: string,
   primaryColor?: string,
@@ -249,5 +249,5 @@ export function StarSwirlGraphic({
         </g>
       </g>
     </svg>
-  )
+  );
 }

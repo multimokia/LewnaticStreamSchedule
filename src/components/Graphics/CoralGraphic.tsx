@@ -23,5 +23,5 @@ export function CoralGraphic({ className }: { className?: string }) {
         </g>
       </g>
     </svg>
-  )
+  );
 }

@@ -15,5 +15,5 @@ export function SparklesGraphic({ className }: { className?: string }) {
         />
       </g>
     </svg>
-  )
+  );
 }

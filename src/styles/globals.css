@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Thin.ttf');
+    font-weight: 100;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-ExtraLight.ttf');
+    font-weight: 200;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Light.ttf');
+    font-weight: 300;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Regular.ttf');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Medium.ttf') format('truetype');
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: "BlackMango";
+    src: url('font/BlackMango-Black.ttf') format('truetype');
+    font-weight: 900;
+  }
+
+  @keyframes hover {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(0, 10px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}

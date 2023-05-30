@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export function FancyFrameTarotFrame({ className, children }: { className?: string, children?: ReactNode }) {
   return (
@@ -19,5 +19,5 @@ export function FancyFrameTarotFrame({ className, children }: { className?: stri
         </foreignObject>
       </g>
     </svg>
-  )
+  );
 }
