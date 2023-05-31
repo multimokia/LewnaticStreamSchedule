@@ -5,10 +5,11 @@ import { FancyFrameTarotFrame } from '@/components/TarotFrames/FancyFrameTarotFr
 import { SoundwaveTarotFrame } from '@/components/TarotFrames/SoundwaveTarotFrame'
 
 // Image imports
-import CrescentMoonSwirlHand from '@/assets/card_inners/crescent_moon_swirl_hand.png'
 import { SparkingHandsGraphic } from '@/components/Graphics/SparklingHandsGraphic'
 import { TarotCardsGraphic } from '@/components/Graphics/TarotCardsGraphic'
-
+import { CrescentMoonSwirlHandGraphic } from '@/components/Graphics/CrescentMoonSwirlHandGraphic'
+import { ScheduleDayContent } from '@/components/ScheduleDayContent'
+import { ScheduleItem } from '@/components/ScheduleItem'
 
 export function ScheduleContent() {
   return (
@@ -18,26 +19,12 @@ export function ScheduleContent() {
           Twitch.tv/lewn_atic
         </p>
         <div className="w-11/12 h-4/6 flex flex-row items-center space-x-7 mt-5">
-          <CrescentTarotFrame
-            className="
-              self-start
-              flex-grow
-              fill-tarot-300
-              w-full
-              animate-hover-slow
-              hover:fill-tarot-500
-              transition-colors
-              animation-delay-900
-            "
-          >
-            <div className="flex flex-col items-center justify-center h-full m-4">
-              <p className="text-6xl text-tarot-50 glow">Tues</p>
-              <p className="text-2xl text-tarot-100">May 23<sup>rd</sup> at 5PM EST</p>
-              <div className="border-t border-tarot-300 w-3/4 py-5"/>
-
-              <p className="text-3xl">Dark Souls 2 with @Mr_Zhixx</p>
-            </div>
-          </CrescentTarotFrame>
+          <ScheduleItem
+            frame={CrescentTarotFrame}
+            startDateTime={new Date(2023, 4, 30, 17)}
+            description="Dark Souls 2 with @Mr_Zhixx"
+            className='self-start'
+          />
           <ArchTarotFrame
             className="
               self-end
@@ -88,7 +75,8 @@ export function ScheduleContent() {
             "
           >
             <div className="flex flex-col items-center justify-center h-full m-4">
-              <img src={CrescentMoonSwirlHand} alt="Crescent Moon Swirl Hand" className="w-3/4"/>
+              {/* <img src={CrescentMoonSwirlHand} alt="Crescent Moon Swirl Hand" className="w-3/4"/> */}
+              <CrescentMoonSwirlHandGraphic className="w-full"/>
             </div>
           </FancyFrameTarotFrame>
           <BeadCurtainTarotFrame
