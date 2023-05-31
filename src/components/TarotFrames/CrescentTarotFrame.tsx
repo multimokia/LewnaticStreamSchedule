@@ -9,6 +9,9 @@ export function CrescentTarotFrame({ className, children }: { className?: string
       viewBox="0.0 0.0 333.4 500.0"
       zoomAndPan="magnify"
       className={className}
+      style={{
+        animationDelay: 'inherit'
+      }}
     >
       <g id="__id1581_sxxadgm5t">
         <path

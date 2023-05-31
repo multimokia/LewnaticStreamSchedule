@@ -9,6 +9,9 @@ export function BeadCurtainTarotFrame({ className, children }: { className?: str
       viewBox="0.0 0.0 359.8 500.0"
       zoomAndPan="magnify"
       className={className}
+      style={{
+        animationDelay: 'inherit'
+      }}
     >
       <g id="__id997_sxxadgm5t">
         <path

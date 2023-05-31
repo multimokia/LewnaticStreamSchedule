@@ -8,7 +8,6 @@ import { SoundwaveTarotFrame } from '@/components/TarotFrames/SoundwaveTarotFram
 import { SparkingHandsGraphic } from '@/components/Graphics/SparklingHandsGraphic'
 import { TarotCardsGraphic } from '@/components/Graphics/TarotCardsGraphic'
 import { CrescentMoonSwirlHandGraphic } from '@/components/Graphics/CrescentMoonSwirlHandGraphic'
-import { ScheduleDayContent } from '@/components/ScheduleDayContent'
 import { ScheduleItem } from '@/components/ScheduleItem'
 
 export function ScheduleContent() {
@@ -23,7 +22,7 @@ export function ScheduleContent() {
             frame={CrescentTarotFrame}
             startDateTime={new Date(2023, 4, 30, 17)}
             description="Dark Souls 2 with @Mr_Zhixx"
-            className='self-start'
+            className='self-start animation-delay-900'
           />
           <ArchTarotFrame
             className="
@@ -42,26 +41,12 @@ export function ScheduleContent() {
               <SparkingHandsGraphic className="w-3/4"/>
             </div>
           </ArchTarotFrame>
-          <SoundwaveTarotFrame
-            className="
-              self-start
-              flex-grow
-              fill-tarot-300
-              w-full
-              animate-hover-slow
-              hover:fill-tarot-500
-              transition-colors
-              animation-delay-300
-            "
-          >
-            <div className="flex flex-col items-center justify-center h-full m-4">
-              <p className="text-6xl text-tarot-50 glow">Wed</p>
-              <p className="text-2xl text-tarot-100">May 24<sup>th</sup> at 5PM EST</p>
-              <div className="border-t border-tarot-300 w-3/4 py-5"/>
-
-              <p className="text-3xl">Hokai Star Rail<br/>First Time!</p>
-            </div>
-          </SoundwaveTarotFrame>
+          <ScheduleItem
+            frame={SoundwaveTarotFrame}
+            startDateTime={new Date(2023, 4, 31, 17)}
+            description="Fez secret hunting + Hollow Knight"
+            className='self-start animation-delay-300'
+          />
           <FancyFrameTarotFrame
             className="
               fill-tarot-300
@@ -75,29 +60,16 @@ export function ScheduleContent() {
             "
           >
             <div className="flex flex-col items-center justify-center h-full m-4">
-              {/* <img src={CrescentMoonSwirlHand} alt="Crescent Moon Swirl Hand" className="w-3/4"/> */}
               <CrescentMoonSwirlHandGraphic className="w-full"/>
             </div>
           </FancyFrameTarotFrame>
-          <BeadCurtainTarotFrame
-            className="
-              self-start
-              flex-grow
-              fill-tarot-300
-              w-full
-              animate-hover-slow
-              hover:fill-tarot-500
-              transition-colors
-              animation-delay-1500
-            "
-          >
-            <div className="flex flex-col items-center justify-center h-full m-4">
-              <p className="text-6xl text-tarot-50 glow">Sat</p>
-              <p className="text-2xl text-tarot-100">May 27<sup>th</sup> at 5PM EST</p>
-              <div className="border-t border-tarot-300 w-3/4 py-5"/>
-              <p className="text-3xl">Slime Rancher</p>
-            </div>
-          </BeadCurtainTarotFrame>
+          <ScheduleItem
+            frame={BeadCurtainTarotFrame}
+            startDateTime={new Date(2023, 5, 3, 17)}
+            description=""
+            offline
+            className='self-start animation-delay-1500'
+          />
         </div>
     </div>
   )

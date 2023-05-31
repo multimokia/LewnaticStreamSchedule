@@ -9,6 +9,9 @@ export function FancyFrameTarotFrame({ className, children }: { className?: stri
       viewBox="0.0 0.0 354.2 500.0"
       zoomAndPan="magnify"
       className={className}
+      style={{
+        animationDelay: 'inherit'
+      }}
     >
       <g id="__id990_sxxadgm5t">
         <path

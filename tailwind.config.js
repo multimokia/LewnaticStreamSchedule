@@ -43,6 +43,10 @@ export default {
       fontFamily: {
         'BlackMango': ['BlackMango', 'sans-serif'],
       },
+      blur: {
+        xs: '2px',
+        ty: '1px',
+      },
     },
     plugins: [
       plugin(({ matchUtilities, theme }) => {
@@ -60,5 +64,10 @@ export default {
         );
       }),
     ],
+    safelist: [
+      'fill-gray-400',
+      'fill-gray-500',
+      'fill-gray-600',
+    ]
   },
 };

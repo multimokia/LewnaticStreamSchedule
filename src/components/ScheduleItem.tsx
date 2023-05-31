@@ -1,39 +1,65 @@
 import { ScheduleDayContent } from "@/components/ScheduleDayContent";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { DateTime } from "luxon";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 type TarotFrameComponentFunction = ({ className, children }: { className?: string, children?: ReactNode }) => JSX.Element;
 
-export function ScheduleItem({ startDateTime, description, frame, className }: { startDateTime: Date, description: string, frame: TarotFrameComponentFunction, className?: string }) {
+export function ScheduleItem({
+  startDateTime,
+  description,
+  frame,
+  offline=false,
+  className
+}: {
+  startDateTime: Date,
+  description: string,
+  frame: TarotFrameComponentFunction,
+  offline?: boolean,
+  className?: string
+}) {
   const now = DateTime.now();
   const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, 'day');
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isTodayStream) {
+      controls.start({
+        rotateY: 360,
+        transition: {
+          duration: 4,
+          repeat: Infinity,
+          repeatDelay: 8,
+          ease: 'easeInOut',
+          delay: 4
+        }
+      });
+    }
+
+    else {
+      controls.stop();
+    }
+  }, [isTodayStream, controls]);
 
   return (
     <motion.div
       initial={{ rotateY: 0 }}
-      animate={{ rotateY: 360 }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        repeatDelay: 8,
-        ease: 'easeInOut',
-        delay: 4
-      }}
+      animate={controls}
       className={`flex-grow w-full ${className}`}
     >
       {frame({
         className: `
           self-start
           flex-grow
-          ${isTodayStream? 'fill-tarot-50' : 'fill-tarot-300' }
+          ${isTodayStream ? 'fill-tarot-50' : 'fill-tarot-300' }
+          ${offline ? 'fill-gray-500' : ''}
           w-full
           animate-hover-slow
           hover:fill-tarot-500
           transition-colors
-          animation-delay-900
         `,
-        children: <ScheduleDayContent startDateTime={startDateTime} description={description} />
+        children: <ScheduleDayContent startDateTime={startDateTime} description={description} offline={offline} />
       })}
     </motion.div>
   );
