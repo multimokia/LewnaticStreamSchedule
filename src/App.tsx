@@ -13,8 +13,8 @@ import { CoralGraphic } from '@/components/Graphics/CoralGraphic'
 
 function App() {
   return (
-    <div className="w-full h-full starry text-center flex flex-col items-center font-BlackMango">
-      <div className="w-full h-full">
+    <div className="w-full h-full starry text-center flex flex-col items-center font-BlackMango scroll-smooth">
+      <div className="w-full h-full absolute z-10 pointer-events-none">
         <TentaclesGraphic className="fixed w-1/2 h-1/2 -rotate-45 -left-1/4 opacity-75"/>
         <div className="opacity-20">
           <SparklesGraphic className="fixed w-1/2 h-1/2 mt-10 rotate-90 fill-tarot-300 animate-pulse-slow"/>

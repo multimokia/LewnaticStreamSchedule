@@ -1,9 +1,10 @@
 import { ScheduleDayContent } from "@/components/ScheduleDayContent";
+import { getRandomInt } from "@/lib/random";
+import { TarotFrameComponentFunction } from "@/types/CardFrame";
 import { motion, useAnimation } from "framer-motion";
 import { DateTime } from "luxon";
-import { ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 
-type TarotFrameComponentFunction = ({ className, children }: { className?: string, children?: ReactNode }) => JSX.Element;
 
 export function ScheduleItem({
   startDateTime,
@@ -46,14 +47,12 @@ export function ScheduleItem({
     <motion.div
       initial={{ rotateY: 0 }}
       animate={controls}
-      className={`${className} flex-grow w-full even:self-end odd:self-start`}
+      className={`${className} flex-initial max-w-1/2 even:self-end odd:self-start animation-delay-${getRandomInt(7, 15)}00`}
     >
       {frame({
         className: `
-          self-start
-          flex-grow
           ${isTodayStream ? 'fill-tarot-50' : 'fill-tarot-300' }
-          ${offline ? 'fill-gray-500' : ''}
+          ${offline ? '!fill-gray-500' : ''}
           w-full
           animate-hover-slow
           hover:fill-tarot-500
