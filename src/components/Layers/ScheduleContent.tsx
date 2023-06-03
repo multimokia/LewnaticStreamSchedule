@@ -14,19 +14,18 @@ export function ScheduleContent() {
   return (
     <div className="absolute w-full h-full flex flex-col items-center">
       <h1 className="glow animate-pulse-slow text-9xl text-tarot-50 font-semibold">Weekly Stream Schedule</h1>
-        <p className="text-2xl text-tarot-300 mb-12 font-BlackMango font-normal">
+        <a className="text-2xl text-tarot-300 mb-12 font-BlackMango font-normal" href='https://twitch.tv/lewn_atic'>
           Twitch.tv/lewn_atic
-        </p>
+        </a>
         <div className="w-11/12 h-4/6 flex flex-row items-center space-x-7 mt-5">
           <ScheduleItem
             frame={CrescentTarotFrame}
             startDateTime={new Date(2023, 4, 30, 17)}
             description="Dark Souls 2 with @Mr_Zhixx"
-            className='self-start animation-delay-900'
+            className='animation-delay-900'
           />
           <ArchTarotFrame
             className="
-              self-end
               flex-grow
               fill-tarot-300
               w-full
@@ -34,6 +33,8 @@ export function ScheduleContent() {
               hover:fill-tarot-500
               transition-colors
               animation-delay-50
+              even:self-end
+              odd:self-start
             "
           >
             <div className="flex flex-col items-center justify-center h-full m-4">
@@ -45,18 +46,19 @@ export function ScheduleContent() {
             frame={SoundwaveTarotFrame}
             startDateTime={new Date(2023, 4, 31, 17)}
             description="Fez secret hunting + Hollow Knight"
-            className='self-start animation-delay-300'
+            className='animation-delay-300'
           />
           <FancyFrameTarotFrame
             className="
               fill-tarot-300
               w-full
-              self-end
               flex-grow
               animate-hover-slow
               hover:fill-tarot-500
               transition-colors
               animation-delay-700
+              even:self-end
+              odd:self-start
             "
           >
             <div className="flex flex-col items-center justify-center h-full m-4">
@@ -65,10 +67,10 @@ export function ScheduleContent() {
           </FancyFrameTarotFrame>
           <ScheduleItem
             frame={BeadCurtainTarotFrame}
-            startDateTime={new Date(2023, 5, 3, 17)}
+            startDateTime={new Date("2023-06-02T16:00:00.000-05:00")}
             description=""
             offline
-            className='self-start animation-delay-1500'
+            className='animation-delay-1500'
           />
         </div>
     </div>

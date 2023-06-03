@@ -46,7 +46,7 @@ export function ScheduleItem({
     <motion.div
       initial={{ rotateY: 0 }}
       animate={controls}
-      className={`flex-grow w-full ${className}`}
+      className={`${className} flex-grow w-full even:self-end odd:self-start`}
     >
       {frame({
         className: `
