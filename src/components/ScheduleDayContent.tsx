@@ -20,11 +20,11 @@ export function ScheduleDayContent({ startDateTime, description, offline=false }
   return (
     <div className="flex flex-col items-center justify-center h-full m-4">
       <p className="text-6xl text-tarot-50 glow">{dateTimeCurrentTimezone.weekdayShort}</p>
-      <p className="text-2xl text-tarot-100">
+      <div className="text-2xl text-tarot-100">
         {dateTimeCurrentTimezone.monthShort} {dateTimeCurrentTimezone.day}
         <sup>{ordinal(dateTimeCurrentTimezone.day)}</sup>
         at {dateTimeCurrentTimezone.hour % 12} {dateTimeCurrentTimezone.hour >= 12 ? "PM" : "AM"} {dateTimeCurrentTimezone.toFormat("ZZZZ")}
-      </p>
+      </div>
       <div className="border-t border-tarot-300 w-3/4 py-5"/>
       { offline ? <p className="text-4xl">Offline</p> : <p className="text-3xl mx-6">{description}</p> }
     </div>
