@@ -1,5 +1,3 @@
-"use client";
-
 import { ScheduleDayContent } from "@/components/ScheduleDayContent";
 import { getRandomInt } from "@/lib/random";
 import { TarotFrameComponentFunction } from "@/types/CardFrame";
@@ -21,6 +19,7 @@ export function ScheduleItem({
   offline?: boolean,
   className?: string
 }) {
+  "use client";
   const now = DateTime.now();
   const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, "day");
 
