@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { TentaclesGraphic } from "@/components/Graphics/TentaclesGraphic";
 import { ScheduleContent } from "@/components/Layers/ScheduleContent";
 import { SparklesGraphic } from "@/components/Graphics/SparklesGraphic";

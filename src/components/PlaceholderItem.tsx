@@ -1,3 +1,5 @@
+"use client";
+
 import { getRandomInt } from "@/lib/random";
 import { TarotFrameComponentFunction } from "@/types/CardFrame";
 
