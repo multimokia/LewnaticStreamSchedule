@@ -9,6 +9,9 @@ export function ArchTarotFrame({ className, children }: { className?: string, ch
       viewBox="0.0 -0.1 357.4 500.1"
       zoomAndPan="magnify"
       className={className}
+      style={{
+        animationDelay: 'inherit'
+      }}
     >
       <g id="__id986_sxxadgm5t">
         <path

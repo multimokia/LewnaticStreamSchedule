@@ -9,6 +9,7 @@ export function SoundwaveTarotFrame({ className, children }: { className?: strin
       viewBox="0.0 -0.0 354.2 500.0"
       zoomAndPan="magnify"
       className={className}
+      style={{animationDelay: 'inherit'}}
     >
       <g id="__id993_sxxadgm5t">
         <path

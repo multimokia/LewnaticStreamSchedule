@@ -43,6 +43,21 @@ module.exports = {
       fontFamily: {
         'BlackMango': ['BlackMango', 'sans-serif'],
       },
+      blur: {
+        xs: '2px',
+        ty: '1px',
+      },
+      maxWidth: {
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+      },
+      maxHeight: {
+        '1/8': '12.5%',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+      },
     },
     plugins: [
       plugin(({ matchUtilities, theme }) => {
@@ -60,5 +75,10 @@ module.exports = {
         );
       }),
     ],
+    safelist: [
+      'fill-gray-400',
+      'fill-gray-500',
+      'fill-gray-600',
+    ]
   },
 };
