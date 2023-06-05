@@ -7,5 +7,5 @@ export function HandsHoldingTarotCards() {
       <TarotCardsGraphic className="w-2/4"/>
       <SparkingHandsGraphic className="w-3/4"/>
     </div>
-  )
+  );
 }

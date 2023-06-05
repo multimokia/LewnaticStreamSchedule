@@ -1,5 +1,5 @@
 
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 
 interface ScheduleDayContentProps {
   startDateTime: Date;
@@ -23,7 +23,7 @@ export function ScheduleDayContent({ startDateTime, description, offline=false }
       <p className="text-2xl text-tarot-100">
         {dateTimeCurrentTimezone.monthShort} {dateTimeCurrentTimezone.day}
         <sup>{ordinal(dateTimeCurrentTimezone.day)}</sup>
-        at {dateTimeCurrentTimezone.hour % 12} {dateTimeCurrentTimezone.hour >= 12 ? 'PM' : 'AM'} {dateTimeCurrentTimezone.toFormat('ZZZZ')}
+        at {dateTimeCurrentTimezone.hour % 12} {dateTimeCurrentTimezone.hour >= 12 ? "PM" : "AM"} {dateTimeCurrentTimezone.toFormat("ZZZZ")}
       </p>
       <div className="border-t border-tarot-300 w-3/4 py-5"/>
       { offline ? <p className="text-4xl">Offline</p> : <p className="text-3xl mx-6">{description}</p> }

@@ -1,16 +1,17 @@
-import { ArchTarotFrame } from '@/components/TarotFrames/ArchTarotFrame'
-import { BeadCurtainTarotFrame } from '@/components/TarotFrames/BeadCurtainTarotFrame'
-import { CrescentTarotFrame } from '@/components/TarotFrames/CrescentTarotFrame'
-import { FancyFrameTarotFrame } from '@/components/TarotFrames/FancyFrameTarotFrame'
-import { SoundwaveTarotFrame } from '@/components/TarotFrames/SoundwaveTarotFrame'
+import { ArchTarotFrame } from "@/components/TarotFrames/ArchTarotFrame";
+import { BeadCurtainTarotFrame } from "@/components/TarotFrames/BeadCurtainTarotFrame";
+import { CrescentTarotFrame } from "@/components/TarotFrames/CrescentTarotFrame";
+import { FancyFrameTarotFrame } from "@/components/TarotFrames/FancyFrameTarotFrame";
+import { SoundwaveTarotFrame } from "@/components/TarotFrames/SoundwaveTarotFrame";
 
 // Image imports
-import { ScheduleItem } from '@/components/ScheduleItem'
-import { HandsHoldingTarotCards } from '@/components/PlaceholderCardContents/HandsHoldingTarotCards'
-import { CrescentSwirlsAroundHand } from '@/components/PlaceholderCardContents/CrescentSwirlsAroundHands'
-import { PlaceholderItem } from '@/components/PlaceholderItem'
-import { TarotFrameComponentFunction } from '@/types/CardFrame'
-import { getRandomInt } from '@/lib/random'
+import { ScheduleItem } from "@/components/ScheduleItem";
+import { HandsHoldingTarotCards } from "@/components/PlaceholderCardContents/HandsHoldingTarotCards";
+import { CrescentSwirlsAroundHand } from "@/components/PlaceholderCardContents/CrescentSwirlsAroundHands";
+import { PlaceholderItem } from "@/components/PlaceholderItem";
+import { TarotFrameComponentFunction } from "@/types/CardFrame";
+import { getRandomInt } from "@/lib/random";
+import { ScheduleData } from "@/types/ScheduleData";
 
 const frames = [
   CrescentTarotFrame,
@@ -34,7 +35,7 @@ function getPlaceholderForIndex(index: number): () => JSX.Element {
 }
 
 export function getScheduleItems(
-  scheduleData: { startDateTime: Date, description: string, offline: boolean }[],
+  scheduleData: ScheduleData[],
   numCards: number = 5
 ) {
   let rv: JSX.Element[] = [];
@@ -57,12 +58,12 @@ function handleEvenAmountOfCards(scheduleData: { startDateTime: Date, descriptio
 
   for (let index = 0; index < numCards; index++) {
     if ((index % 2 == 0 && placeholdersUsed < maxPlaceholders) || scheduleData.length <= scheduleItemsUsed) {
-      rv.push(<PlaceholderItem key={index} frame={getFrameForIndex(index)} content={getPlaceholderForIndex(placeholdersUsed)}/>)
+      rv.push(<PlaceholderItem key={index} frame={getFrameForIndex(index)} content={getPlaceholderForIndex(placeholdersUsed)}/>);
       placeholdersUsed++;
     }
 
     else {
-      rv.push(<ScheduleItem key={index} {...scheduleData[scheduleItemsUsed]} frame={getFrameForIndex(index)}/>)
+      rv.push(<ScheduleItem key={index} {...scheduleData[scheduleItemsUsed]} frame={getFrameForIndex(index)}/>);
       scheduleItemsUsed++;
     }
   }
@@ -79,16 +80,14 @@ function handleOddAmountOfCards(scheduleData: { startDateTime: Date, description
 
   const scheduleItemOffset = scheduleData.length % 2;
 
-  console.log(`scheduleItemOffset: ${scheduleItemOffset} | maxPlaceholders: ${maxPlaceholders}`)
-
   for (let index = 0; index < numCards; index++) {
     if ((index % 2 == scheduleItemOffset && placeholdersUsed < maxPlaceholders) || scheduleData.length <= scheduleItemsUsed) {
-      rv.push(<PlaceholderItem key={index} frame={getFrameForIndex(index)} content={getPlaceholderForIndex(placeholdersUsed)}/>)
+      rv.push(<PlaceholderItem key={index} frame={getFrameForIndex(index)} content={getPlaceholderForIndex(placeholdersUsed)}/>);
       placeholdersUsed++;
     }
 
     else {
-      rv.push(<ScheduleItem key={index} {...scheduleData[scheduleItemsUsed]} frame={getFrameForIndex(index)}/>)
+      rv.push(<ScheduleItem key={index} {...scheduleData[scheduleItemsUsed]} frame={getFrameForIndex(index)}/>);
       scheduleItemsUsed++;
     }
   }

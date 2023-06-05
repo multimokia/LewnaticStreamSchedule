@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export function CrescentTarotFrame({ className, children }: { className?: string, children?: ReactNode }) {
   return (
@@ -10,7 +10,7 @@ export function CrescentTarotFrame({ className, children }: { className?: string
       zoomAndPan="magnify"
       className={className}
       style={{
-        animationDelay: 'inherit'
+        animationDelay: "inherit"
       }}
     >
       <g id="__id1581_sxxadgm5t">

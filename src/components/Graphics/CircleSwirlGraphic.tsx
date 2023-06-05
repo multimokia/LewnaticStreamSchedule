@@ -1,8 +1,8 @@
 export function CircleSwirlGraphic({
   className,
-  primaryColor='#daadd4',
-  secondaryColor='#886aa1',
-  tertiaryColor='#754f85'
+  primaryColor="#daadd4",
+  secondaryColor="#886aa1",
+  tertiaryColor="#754f85"
 }: {
   className?: string,
   primaryColor?: string,

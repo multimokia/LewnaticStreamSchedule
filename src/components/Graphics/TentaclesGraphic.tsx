@@ -1,7 +1,7 @@
 export function TentaclesGraphic({
   className,
-  baseColor='#4d3785',
-  accentColor='#b08ac3',
+  baseColor="#4d3785",
+  accentColor="#b08ac3",
 }: {
   className?: string,
   baseColor?: string,

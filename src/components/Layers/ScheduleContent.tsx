@@ -1,6 +1,7 @@
-import { getScheduleItems } from "@/lib/cardRenderHelpers"
+import { getScheduleItems } from "@/lib/cardRenderHelpers";
+import { ScheduleData } from "@/types/ScheduleData";
 
-const scheduleData = [
+const scheduleData: ScheduleData[] = [
   {
     startDateTime: new Date("2023-05-30T16:00:00.000-05:00"),
     description: "Dark Souls 2 with @Mr_Zhixx",
@@ -16,7 +17,7 @@ const scheduleData = [
     description: "",
     offline: true
   }
-]
+];
 export function ScheduleContent() {
   return (
     <div className="p-4 flex flex-col items-center">

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export function BeadCurtainTarotFrame({ className, children }: { className?: string, children?: ReactNode }) {
   return (
@@ -10,7 +10,7 @@ export function BeadCurtainTarotFrame({ className, children }: { className?: str
       zoomAndPan="magnify"
       className={className}
       style={{
-        animationDelay: 'inherit'
+        animationDelay: "inherit"
       }}
     >
       <g id="__id997_sxxadgm5t">

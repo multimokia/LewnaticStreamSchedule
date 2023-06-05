@@ -20,7 +20,7 @@ export function ScheduleItem({
   className?: string
 }) {
   const now = DateTime.now();
-  const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, 'day');
+  const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, "day");
 
   const controls = useAnimation();
 
@@ -32,7 +32,7 @@ export function ScheduleItem({
           duration: 4,
           repeat: Infinity,
           repeatDelay: 8,
-          ease: 'easeInOut',
+          ease: "easeInOut",
           delay: 4
         }
       });
@@ -51,8 +51,8 @@ export function ScheduleItem({
     >
       {frame({
         className: `
-          ${isTodayStream ? 'fill-tarot-50' : 'fill-tarot-300' }
-          ${offline ? '!fill-gray-500' : ''}
+          ${isTodayStream ? "fill-tarot-50" : "fill-tarot-300" }
+          ${offline ? "!fill-gray-500" : ""}
           w-full
           animate-hover-slow
           hover:fill-tarot-500
