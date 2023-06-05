@@ -1,11 +1,18 @@
+"use client";
+
 import { getRandomInt } from "@/lib/random";
 import { TarotFrameComponentFunction } from "@/types/CardFrame";
+import { useEffect, useState } from "react";
 
 export function PlaceholderItem({ frame, content, className }: { frame: TarotFrameComponentFunction, content: () => JSX.Element, className?: string }) {
-  "use client";
+  const [ randomOffset, setRandomOffset ] = useState<number>(0);
+
+  useEffect(() => {
+    setRandomOffset(getRandomInt(1, 7));
+  }, []);
 
   return (
-    <div className={`flex-initial max-w-1/2 even:self-end odd:self-start animation-delay-${getRandomInt(1, 7)}00`}>
+    <div className={`flex-initial max-w-1/2 even:self-end odd:self-start animation-delay-${randomOffset}00`}>
       {frame({
         className: `
           fill-tarot-300

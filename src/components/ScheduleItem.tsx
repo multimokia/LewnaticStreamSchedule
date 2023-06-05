@@ -3,7 +3,7 @@ import { getRandomInt } from "@/lib/random";
 import { TarotFrameComponentFunction } from "@/types/CardFrame";
 import { motion, useAnimation } from "framer-motion";
 import { DateTime } from "luxon";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export function ScheduleItem({
@@ -24,6 +24,11 @@ export function ScheduleItem({
   const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, "day");
 
   const controls = useAnimation();
+  const [ randomOffset, setRandomOffset ] = useState<number>(0);
+
+  useEffect(() => {
+    setRandomOffset(getRandomInt(7, 15));
+  }, []);
 
   useEffect(() => {
     if (isTodayStream) {
@@ -48,7 +53,7 @@ export function ScheduleItem({
     <motion.div
       initial={{ rotateY: 0 }}
       animate={controls}
-      className={`${className} flex-initial max-w-1/2 even:self-end odd:self-start animation-delay-${getRandomInt(7, 15)}00`}
+      className={`${className} flex-initial max-w-1/2 even:self-end odd:self-start animation-delay-${randomOffset}00`}
     >
       {frame({
         className: `
