@@ -15,6 +15,7 @@ function ordinal(n: number) {
 }
 
 export function ScheduleDayContent({ startDateTime, description, offline=false }: ScheduleDayContentProps) {
+  "use client";
   const now = DateTime.now();
   const dateTimeCurrentTimezone = DateTime.fromJSDate(startDateTime).setZone(now.zone);
 
