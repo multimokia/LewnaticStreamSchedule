@@ -4,6 +4,7 @@ import { TarotFrameComponentFunction } from "@/types/CardFrame";
 import { motion, useAnimation } from "framer-motion";
 import { DateTime } from "luxon";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 
 export function ScheduleItem({
@@ -22,6 +23,7 @@ export function ScheduleItem({
   "use client";
   const now = DateTime.now();
   const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, "day");
+  const isEmbedded = useMediaQuery({ query: "(max-width: 600px)" });
 
   const controls = useAnimation();
   const [ randomOffset, setRandomOffset ] = useState<number>(0);
@@ -59,7 +61,7 @@ export function ScheduleItem({
         className: `
           ${isTodayStream ? "fill-tarot-50" : "fill-tarot-300" }
           ${offline ? "!fill-gray-500" : ""}
-          w-full
+          ${isEmbedded ? "w-3/4" : "w-full" }
           animate-hover-slow
           hover:fill-tarot-500
           transition-colors

@@ -3,9 +3,11 @@
 import { getRandomInt } from "@/lib/random";
 import { TarotFrameComponentFunction } from "@/types/CardFrame";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export function PlaceholderItem({ frame, content, className }: { frame: TarotFrameComponentFunction, content: () => JSX.Element, className?: string }) {
   const [ randomOffset, setRandomOffset ] = useState<number>(0);
+  const isEmbedded = useMediaQuery({ query: "(max-width: 600px)" });
 
   useEffect(() => {
     setRandomOffset(getRandomInt(1, 7));
@@ -17,7 +19,7 @@ export function PlaceholderItem({ frame, content, className }: { frame: TarotFra
         className: `
           fill-tarot-300
           animate-hover-slow
-          w-full
+          ${isEmbedded ? "w-3/4" : "w-full" }
           hover:fill-tarot-500
           transition-colors
           ${className}
