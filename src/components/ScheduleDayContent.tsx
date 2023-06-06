@@ -1,6 +1,5 @@
-"use client";
-
 import { DateTime } from "luxon";
+import { useEffect, useState } from "react";
 
 interface ScheduleDayContentProps {
   startDateTime: Date;
@@ -15,20 +14,27 @@ function ordinal(n: number) {
 }
 
 export function ScheduleDayContent({ startDateTime, description, offline=false }: ScheduleDayContentProps) {
-  "use client";
-  const now = DateTime.now();
-  const dateTimeCurrentTimezone = DateTime.fromJSDate(startDateTime).setZone(now.zone);
+  const [ dateTimeCurrentTimezone, setDateTimeCurrentTimezone ] = useState<DateTime | null>(null);
+
+  useEffect(() => {
+    const now = DateTime.now();
+    setDateTimeCurrentTimezone(DateTime.fromJSDate(startDateTime).setZone(now.zone));
+  }, [ startDateTime ]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-full m-4">
-      <p className="text-6xl text-tarot-50 glow" suppressHydrationWarning>{dateTimeCurrentTimezone.weekdayShort}</p>
-      <div className="text-2xl text-tarot-100" suppressHydrationWarning>
-        {dateTimeCurrentTimezone.monthShort} {dateTimeCurrentTimezone.day}
-        <sup suppressHydrationWarning>{ordinal(dateTimeCurrentTimezone.day)}</sup>
-        at {dateTimeCurrentTimezone.hour % 12} {dateTimeCurrentTimezone.hour >= 12 ? "PM" : "AM"} {dateTimeCurrentTimezone.toFormat("ZZZZ")}
-      </div>
-      <div className="border-t border-tarot-300 w-3/4 py-5" suppressHydrationWarning/>
-      { offline ? <p className="text-4xl">Offline</p> : <p className="text-3xl mx-6">{description}</p> }
-    </div>
+    <>
+      { dateTimeCurrentTimezone ? (
+        <div className="flex flex-col items-center justify-center h-full m-4">
+          <p className="text-6xl text-tarot-50 glow" suppressHydrationWarning>{dateTimeCurrentTimezone.weekdayShort}</p>
+          <div className="text-2xl text-tarot-100" suppressHydrationWarning>
+            {dateTimeCurrentTimezone.monthShort} {dateTimeCurrentTimezone.day}
+            <sup suppressHydrationWarning>{ordinal(dateTimeCurrentTimezone.day)}</sup>
+            at {dateTimeCurrentTimezone.hour % 12} {dateTimeCurrentTimezone.hour >= 12 ? "PM" : "AM"} {dateTimeCurrentTimezone.toFormat("ZZZZ")}
+          </div>
+          <div className="border-t border-tarot-300 w-3/4 py-5" suppressHydrationWarning/>
+          { offline ? <p className="text-4xl">Offline</p> : <p className="text-3xl mx-6">{description}</p> }
+        </div>
+      ) : <div className="flex flex-col items-center justify-center h-full m-4"><p>Loading...</p></div> }
+    </>
   );
 }
