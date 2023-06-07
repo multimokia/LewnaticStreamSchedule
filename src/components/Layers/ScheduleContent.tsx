@@ -21,7 +21,7 @@ const scheduleData: ScheduleData[] = [
   }
 ];
 export function ScheduleContent() {
-  const isEmbedded = useMediaQuery({ query: "(max-width: 600px)" });
+  const isEmbedded = useMediaQuery({ query: "(max-height: 500px)" });
   const items = getScheduleItems(scheduleData, 5, isEmbedded);
 
   return (

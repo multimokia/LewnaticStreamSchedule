@@ -23,7 +23,7 @@ export function ScheduleItem({
   "use client";
   const now = DateTime.now();
   const isTodayStream = DateTime.fromJSDate(startDateTime).hasSame(now, "day");
-  const isEmbedded = useMediaQuery({ query: "(max-width: 600px)" });
+  const isEmbedded = useMediaQuery({ query: "(max-height: 500px)" });
 
   const controls = useAnimation();
   const [ randomOffset, setRandomOffset ] = useState<number>(0);

@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 
 export function PlaceholderItem({ frame, content, className="" }: { frame: TarotFrameComponentFunction, content: () => JSX.Element, className?: string }) {
   const [ randomOffset, setRandomOffset ] = useState<number>(0);
-  const isEmbedded = useMediaQuery({ query: "(max-width: 600px)" });
+  const isEmbedded = useMediaQuery({ query: "(max-height: 500px)" });
 
   useEffect(() => {
     setRandomOffset(getRandomInt(1, 7));
