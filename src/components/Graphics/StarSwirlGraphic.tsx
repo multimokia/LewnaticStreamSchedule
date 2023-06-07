@@ -1,7 +1,7 @@
 export function StarSwirlGraphic({
   className,
   primaryColor="#daadd4",
-  secondaryColor="#886aa1",
+  secondaryColor="#435acd",
   tertiaryColor="#754f85" //68448a
 }: {
   className?: string,

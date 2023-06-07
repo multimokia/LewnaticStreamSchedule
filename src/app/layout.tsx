@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

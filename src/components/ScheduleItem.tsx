@@ -12,7 +12,7 @@ export function ScheduleItem({
   description,
   frame,
   offline=false,
-  className
+  className=""
 }: {
   startDateTime: Date,
   description: string,
@@ -55,13 +55,13 @@ export function ScheduleItem({
     <motion.div
       initial={{ rotateY: 0 }}
       animate={controls}
-      className={`${className} flex-initial max-w-1/2 even:self-end odd:self-start animation-delay-${randomOffset}00`}
+      className={`${className} flex-initial ${isEmbedded ? "" : "max-w-1/2 even:self-end odd:self-start" } animation-delay-${randomOffset}00`}
     >
       {frame({
         className: `
+          ${offline ? "fill-royal-blue-500 hover:fill-royal-blue-900" : ""}
           ${isTodayStream ? "fill-tarot-50" : "fill-tarot-300" }
-          ${offline ? "!fill-gray-500" : ""}
-          ${isEmbedded ? "w-3/4" : "w-full" }
+          w-full
           animate-hover-slow
           hover:fill-tarot-500
           transition-colors

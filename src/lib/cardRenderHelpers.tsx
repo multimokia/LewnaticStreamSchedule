@@ -36,23 +36,24 @@ function getPlaceholderForIndex(index: number): () => JSX.Element {
 
 export function getScheduleItems(
   scheduleData: ScheduleData[],
-  numCards: number = 5
+  numCards: number = 5,
+  isMobile: boolean = false
 ) {
   let rv: JSX.Element[] = [];
   if (numCards % 2 == 0) {
-    rv = handleEvenAmountOfCards(scheduleData, numCards);
+    rv = handleEvenAmountOfCards(scheduleData, numCards, isMobile);
   }
 
   else {
-    rv = handleOddAmountOfCards(scheduleData, numCards);
+    rv = handleOddAmountOfCards(scheduleData, numCards, isMobile);
   }
 
   return optimize(rv, maxmindist);
 }
 
-function handleEvenAmountOfCards(scheduleData: { startDateTime: Date, description: string, offline: boolean }[], numCards: number) {
+function handleEvenAmountOfCards(scheduleData: ScheduleData[], numCards: number, isMobile: boolean) {
   const rv: JSX.Element[] = [];
-  const maxPlaceholders = Math.max(0, numCards - scheduleData.length);
+  const maxPlaceholders = isMobile ? 0 : Math.max(0, numCards - scheduleData.length);
   let placeholdersUsed = 0;
   let scheduleItemsUsed = 0;
 
@@ -72,9 +73,9 @@ function handleEvenAmountOfCards(scheduleData: { startDateTime: Date, descriptio
 }
 
 
-function handleOddAmountOfCards(scheduleData: { startDateTime: Date, description: string, offline: boolean }[], numCards: number) {
+function handleOddAmountOfCards(scheduleData: ScheduleData[], numCards: number, isMobile: boolean) {
   const rv: JSX.Element[] = [];
-  const maxPlaceholders = Math.max(0, numCards - scheduleData.length);
+  const maxPlaceholders = isMobile ? 0 : Math.max(0, numCards - scheduleData.length);
   let placeholdersUsed = 0;
   let scheduleItemsUsed = 0;
 
