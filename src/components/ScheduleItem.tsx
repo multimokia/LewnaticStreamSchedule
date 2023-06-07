@@ -59,8 +59,8 @@ export function ScheduleItem({
     >
       {frame({
         className: `
-          ${offline ? "fill-royal-blue-500 hover:fill-royal-blue-900" : ""}
-          ${isTodayStream && !offline ? "fill-tarot-50" : "fill-tarot-300" }
+          ${offline ? "!fill-royal-blue-500 hover:!fill-royal-blue-900" : ""}
+          ${isTodayStream ? "fill-tarot-50" : "fill-tarot-300" }
           w-full
           animate-hover-slow
           hover:fill-tarot-500
