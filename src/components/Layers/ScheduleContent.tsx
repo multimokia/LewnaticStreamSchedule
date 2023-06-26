@@ -1,28 +1,22 @@
 import { getScheduleItems } from "@/lib/cardRenderHelpers";
 import { ScheduleData } from "@/types/ScheduleData";
 import { CarouselProvider, Slide, Slider } from "pure-react-carousel";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
-const scheduleData: ScheduleData[] = [
-  {
-    startDateTime: new Date("2023-05-30T16:00:00.000-05:00"),
-    description: "Dark Souls 2 with @Mr_Zhixx",
-    offline: false
-  },
-  {
-    startDateTime: new Date("2023-05-03T16:00:00.000-05:00"),
-    description: "Fez secret hunting + Hollow Knight",
-    offline: false
-  },
-  {
-    startDateTime: new Date("2023-06-02T16:00:00.000-05:00"),
-    description: "",
-    offline: true
-  }
-];
 export function ScheduleContent() {
+  const [scheduleData, setScheduleData] = useState<ScheduleData[]>([]);
   const isEmbedded = useMediaQuery({ query: "(max-height: 500px)" });
   const items = getScheduleItems(scheduleData, 5, isEmbedded);
+
+  useEffect(() => {
+    fetch("/api/schedule-data")
+      .then((res) => res.json())
+      .then((scheduleData) => {
+        setScheduleData(scheduleData);
+      });
+  }, []);
+
 
   return (
     <div className={`${ isEmbedded ? "p-2" : "p-4"} flex flex-col items-center`}>
