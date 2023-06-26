@@ -18,7 +18,7 @@ export function ScheduleDayContent({ startDateTime, description, offline=false }
 
   useEffect(() => {
     const now = DateTime.now();
-    setDateTimeCurrentTimezone(DateTime.fromJSDate(new Date(startDateTime)).setZone(now.zone));
+    setDateTimeCurrentTimezone(DateTime.fromJSDate(new Date(startDateTime)).setZone(now.zone).setLocale("en-GB"));
   }, [ startDateTime ]);
 
   return (
