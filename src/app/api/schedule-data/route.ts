@@ -25,12 +25,13 @@ export async function POST(req: Request) {
   }
 
   const body = await req.json();
+  const scheduleItems = body.scheduleItems;
   const _client = client.db(process.env.DB_NAME);
   _client.collection("scheduleitems").drop();
-  await _client.collection("scheduleitems").insertMany(body.scheduleitems, { forceServerObjectId: true });
+  await _client.collection("scheduleitems").insertMany(scheduleItems, { forceServerObjectId: true });
 
   return new NextResponse(
-    JSON.stringify({ message: "Schedule items saved", scheduleitems: body.scheduleitems }),
+    JSON.stringify({ message: "Schedule items saved", scheduleItems }),
     { status: 200, statusText: "OK" }
   );
 }
