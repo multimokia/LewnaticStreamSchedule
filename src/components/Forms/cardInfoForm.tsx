@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { DateTime } from "luxon";
+import { toast } from "react-toastify";
 
 interface FormData {
   [k: string]: { date: string, description: string}
@@ -34,7 +35,13 @@ export function CardInfoForm() {
       body: JSON.stringify({ scheduleItems: items })
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        toast.success("Schedule data saved successfully");
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error("Error saving schedule data");
+      });
 
   };
 
