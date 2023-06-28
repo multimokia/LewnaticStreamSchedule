@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 export function ScheduleContent() {
   const [scheduleData, setScheduleData] = useState<ScheduleData[]>([]);
   const isEmbedded = useMediaQuery({ query: "(max-height: 500px)" });
-  const items = getScheduleItems(scheduleData, 5, isEmbedded);
+  const items = getScheduleItems(scheduleData, scheduleData.length + 2, isEmbedded);
 
   useEffect(() => {
     fetch("/api/schedule-data")
@@ -44,7 +44,7 @@ export function ScheduleContent() {
         ) :
         (
           <div className="flex flex-row items-center space-x-7 mt-5 bg-[rgba(30,30,30,0.8)] rounded-2xl p-6 m-6 backdrop-blur-ty drop-shadow-sm">
-            {getScheduleItems(scheduleData, 5)}
+            {getScheduleItems(scheduleData, scheduleData.length + 2)}
           </div>
         )
       }
