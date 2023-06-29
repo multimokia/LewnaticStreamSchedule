@@ -1,3 +1,5 @@
+import tailwindcssAnimated from "tailwindcss-animated";
+
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
@@ -77,4 +79,7 @@ module.exports = {
       "fill-gray-600",
     ]
   },
+  plugins: [
+    tailwindcssAnimated,
+  ],
 };
