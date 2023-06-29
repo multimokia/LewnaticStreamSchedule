@@ -5,6 +5,10 @@ const nextConfig = {
       source: "/index.html",
       destination: "/",
     },
+    {
+      source: "/config.html",
+      destination: "/config",
+    },
   ],
 };
 
