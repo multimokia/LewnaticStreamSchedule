@@ -15,7 +15,15 @@ export function ScheduleContent() {
 
     fetch("/api/schedule-data")
       .then((res) => res.json())
-      .then((scheduleData) => {
+      .then((scheduleData: ScheduleData[]) => {
+        // We need to sort the schedule data by date
+        scheduleData.sort((a, b) => {
+          const aDate = new Date(a.startDateTime);
+          const bDate = new Date(b.startDateTime);
+
+          return aDate.getTime() - bDate.getTime();
+        });
+
         setScheduleData(scheduleData);
         setIsLoading(false);
       });
